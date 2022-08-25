@@ -8,11 +8,24 @@ using System;
 
 namespace ClassLibrary
 {
-    /// <summary>
-    /// Esta clase representa un tren muy básico.
-    /// </summary>
     public class Train
     {
+        private static int count = 0;
+
+        public int Count {get; private set;}
+
+        public string Name {get; private set;}
+
+        public Train (string name){
+            this.Name = name;
+            count++;
+            this.Count = count;
+            Console.WriteLine($"Creando el tren {this.Name}");
+        }
+        ~Train(){
+            count--;
+            Console.WriteLine($"Destruyendo el tren {this.Name}");
+        } 
         /// <summary>
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
